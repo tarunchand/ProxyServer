@@ -154,11 +154,6 @@ class ProxyServer:
 
     @staticmethod
     def log_req_resp(host, req, resp):
-        '''
-        delimiter = '\n\n' + '=' * 100 + '\n'
-        address_str = '[+] ' + str(host) + '\n'
-        print(delimiter + address_str + '[+] Request : \n' + req + '\n' + '[+] Response : \n' + resp + delimiter)
-        '''
         req_res = '''
 ===============================================================================================================
 
