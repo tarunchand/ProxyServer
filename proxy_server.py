@@ -154,9 +154,25 @@ class ProxyServer:
 
     @staticmethod
     def log_req_resp(host, req, resp):
+        '''
         delimiter = '\n\n' + '=' * 100 + '\n'
         address_str = '[+] ' + str(host) + '\n'
         print(delimiter + address_str + '[+] Request : \n' + req + '\n' + '[+] Response : \n' + resp + delimiter)
+        '''
+        req_res = '''
+===============================================================================================================
+
+[+] {}
+
+[+] Request : 
+{}
+
+[+] Response :
+{}
+
+===============================================================================================================
+        '''.format(str(host), req, resp)
+        print(req_res)
 
 
 def main():
@@ -170,6 +186,10 @@ def main():
     try:
         proxy_server = ProxyServer(config)
         proxy_server.run()
+    except socket.error as ex:
+        if str(ex).find('Address already in use') != -1:
+            print('[!] Address already in use.')
+        logging.error(str(ex))
     except (IOError, OSError, KeyboardInterrupt, Exception) as ex:
         logging.error(str(ex))
 
