@@ -172,7 +172,7 @@ class ProxyServer:
 
 def main():
     config = dict({
-        'HOST_NAME': '192.168.1.190',
+        'HOST_NAME': '127.0.0.1',
         'BIND_PORT': 6060,
         'BUFFER_SIZE': 4096,
         'MAX_CONN': 100,
